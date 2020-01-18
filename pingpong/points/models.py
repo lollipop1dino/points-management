@@ -7,17 +7,20 @@ class Player(models.Model):
     email = models.EmailField()
     rank = models.IntegerField()
     points = models.IntegerField()
+
+    class Meta:
+        ordering = ['name']
     
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
-class Matches(models.Model):
-    players = models.ManyToManyField(Player, related_name='player_playing')
-    winner = models.ForeignKey(Player, on_delete=models.CASCADE, related_name='player_won')
+class Match(models.Model):
+    loser = models.ForeignKey(Player, on_delete=models.CASCADE, related_name='loser')
+    winner = models.ForeignKey(Player, on_delete=models.CASCADE, related_name='winner')
 
     date = models.DateField()
     
-    def __unicode__(self):
-        return self.date
+    def __str__(self):
+        return self.winner.name + " " + self.loser.name
 
 
