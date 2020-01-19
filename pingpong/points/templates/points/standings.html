@@ -2,13 +2,21 @@
 {% extends "points/base_template.html" %}
 <!--{% load static %}-->
 {% block main %}
-
-<!-- Main Content -->
 <div class="container rounded main-content p-5">
-  <h2>Standings</h2>
-  <hr class="featurette-divider">
-  <div class="row">
-    This is a test
-  </div>
+  <h2>Rankings</h2>
 </div>
+<table style="width:100%">
+  <tr>
+    <td>Rank</td>
+    <td>Name</td>
+    <td>Points</td>
+  </tr>
+  {% for Player in ranks %}
+  <tr>
+    <th>{{ Player.rank}}</th>
+    <th>{{ Player.name }}</th>
+    <th>{{ Player.points }}</th>
+  </tr>
+  {% endfor %}
+</table> 
 {% endblock %}
