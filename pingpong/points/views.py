@@ -4,9 +4,7 @@ from .models import Player
 from .models import Match
 import datetime
 from .forms import MatchForm
-import sys
-sys.path.append("..")
-import addmatch
+from .calculation import new_match, update_players, update_rank, new_player
 
 
 def index(request):
@@ -22,9 +20,9 @@ def matchsubmission(request):
         if form.is_valid():
             winner = Player.objects.get(email=form.cleaned_data['p1'])
             loser = Player.objects.get(email=form.cleaned_data['p2'])
-            addmatch.new_match(winner=winner,loser=loser,timestamp=datetime.date.today())
-            addmatch.update_players()
-            addmatch.update_rank()
+            new_match(winner=winner,loser=loser,timestamp=datetime.date.today())
+            update_players()
+            update_rank()
         return render(request, 'points/matchsubmission.html', {'form': blank})
     blankform = MatchForm()
     return render(request, 'points/matchsubmission.html', {'form': blankform})
