@@ -38,10 +38,11 @@ def update_players():
         print("hi")
         arch = MatchArchive(loser = mat.loser, winner = mat.winner, date = mat.date) 
         arch.save()
-        print(mat.loser.points)
-        mat.loser.points -= 1
-        print(mat.loser.points)
-        mat.winner.points += 1
+        if mat.loser.rank <= 5 and mat.winner.rank > 5:
+            mat.winner.points += (12 - mat.loser.rank * 2)
+        else:
+            mat.winner.points += 1
+            
         mat.loser.save()
         mat.winner.save()
     Match.objects.all().delete()

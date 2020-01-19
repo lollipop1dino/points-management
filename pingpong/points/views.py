@@ -19,7 +19,7 @@ def sendinmatchsubmission(request):
 
 def standings(request):
     ranks = Player.objects.all().order_by('rank')
-    return render(request, 'points/standings.html', {'ranks': ranks)
+    return render(request, 'points/standings.html', {'ranks': ranks})
 
 def upcoming(request):
     return render(request, 'points/upcoming.html')
