@@ -1,0 +1,51 @@
+<!-- Extends our base template -->
+{% extends "points/base_template.html" %}
+<!--{% load static %}-->
+{% load socialaccount %}
+{% block main %}
+
+<!-- Header -->
+<header class="w3-container w3-red w3-center" style="padding:128px 16px">
+  <h1 class="w3-margin w3-jumbo">NCSSM Ping Pong Club</h1>
+  <p class="w3-xlarge">2019-2020</p>
+  {% if user.is_authenticated %}
+<p>Logged in as {{ user.username }}</p>
+<a href="{% url 'account_logout' %}">Logout</a>
+{% else %}
+<a href="{% provider_login_url 'google' %}" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Sign-in</a>
+{% endif %}
+  
+</header>
+
+<!-- First Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-twothird">
+      <h1>Rules</h1>
+      <h5 class="w3-padding-32">1. Normal matches are played to 11 points<br>2. Players alternate serving every two points, and players can score regardless of who serves<br>3. If a game is tied at 10-10 (deuce), a player must win by 2 points, and in this scenario, players alternate every serve<br>4. During serves, the ball must make contact with the paddle behind the table after a toss<br>5. If the ball makes contact with the net during a serve, it is declared a let serve and the point is replayed. There is no penalty for let serves regardless of how many times they occcur.</h5>
+     
+    </div>
+
+    <div class="w3-third w3-center">
+      <img src="{% static 'points/images/pingpongpaddle.png' %}" alt="pingpongpaddle" class = "center">
+      <i class="pingpongpaddle w3-padding-64 w3-text-red"></i>
+    </div>
+  </div>
+</div>
+
+<!-- Second Grid -->
+<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-third w3-center">
+      <img src="{% static 'points/images/trophy2.png' %}" alt="trophy" class = "center">
+      <i class="trophy w3-padding-64 w3-text-red"></i>
+    </div>
+
+    <div class="w3-twothird">
+      <h1>Latest Updates</h1>
+      <h5 class="w3-padding-32">Congratulations to Alex Tong for winning the Trimester 2 Single Tournament!</h5>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

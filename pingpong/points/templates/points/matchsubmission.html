@@ -8,7 +8,11 @@
   <h2>Match Submission</h2>
   <hr class="featurette-divider">
   <div class="row">
-    Match submission
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
   </div>
 </div>
 {% endblock %}
