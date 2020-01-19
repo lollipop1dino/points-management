@@ -12,6 +12,7 @@ def update_rank():
     for h in play:
         h.rank = current
         current += 1
+        h.save()
     
 
 def new_player(name, email, rank=10000, points=0):

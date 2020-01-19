@@ -1,20 +1,34 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Player
+from .models import Match
+import datetime
+from .forms import MatchForm
+import sys
+sys.path.append("..")
+import addmatch
 
-from forms import MatchForm
 
 def index(request):
+    #allusers = models.Users.objects.all()
+    #for user in allusers:
+    #   addmatch.new_player(name=user.name,email=user.email)
     return render(request, 'points/index.html')
 
 def matchsubmission(request):
+    if request.method == 'POST':
+        form = MatchForm(request.POST)
+        blank = MatchForm()
+        if form.is_valid():
+            winner = Player.objects.get(email=form.cleaned_data['p1'])
+            loser = Player.objects.get(email=form.cleaned_data['p2'])
+            addmatch.new_match(winner=winner,loser=loser,timestamp=datetime.date.today())
+            addmatch.update_players()
+            addmatch.update_rank()
+        return render(request, 'points/matchsubmission.html', {'form': blank})
     blankform = MatchForm()
     return render(request, 'points/matchsubmission.html', {'form': blankform})
 
-def sendinmatchsubmission(request):
-    form = MatchForm(request.POST)
-    blank = MatchForm()
-    return render(request, 'points/matchsubmission.html', {'form': blank})
 
 
 def standings(request):
