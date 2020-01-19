@@ -23,4 +23,11 @@ class Match(models.Model):
     def __str__(self):
         return self.winner.name + " " + self.loser.name
 
+class MatchArchive(models.Model):
+    loser = models.ForeignKey(Player, on_delete=models.CASCADE, related_name='loser_archive')
+    winner = models.ForeignKey(Player, on_delete=models.CASCADE, related_name='winner_archive')
+    
+    date = models.DateField()
 
+    def __str__(self):
+        return self.winner.name + " " + self.loser.name
