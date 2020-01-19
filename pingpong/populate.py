@@ -62,6 +62,7 @@ def add_match(loser, winner):
 if __name__ == '__main__':
     print("Starting Rango population script...")
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'pingpong.settings')
+    print(os.getcwd())
 
     
     django.setup()
