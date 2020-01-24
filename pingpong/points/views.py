@@ -14,17 +14,16 @@ def index(request):
     return render(request, 'points/index.html')
 
 def matchsubmission(request):
+    blankform = MatchForm()
     if request.method == 'POST':
         form = MatchForm(request.POST)
-        blank = MatchForm()
         if form.is_valid():
             winner = Player.objects.get(email=form.cleaned_data['p1'])
             loser = Player.objects.get(email=form.cleaned_data['p2'])
             new_match(winner=winner,loser=loser,timestamp=datetime.date.today())
             update_players()
             update_rank()
-        return render(request, 'points/matchsubmission.html', {'form': blank})
-    blankform = MatchForm()
+        return render(request, 'points/matchsubmission.html', {'form': blankform})
     return render(request, 'points/matchsubmission.html', {'form': blankform})
 
 
