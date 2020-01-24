@@ -1,2 +1,7 @@
-__pycache__/
-.vs/
+__pycache__
+*.pyc
+*.log
+*.pot
+
+.vs/*
+
