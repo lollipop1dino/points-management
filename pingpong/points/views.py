@@ -4,7 +4,7 @@ from .models import Player
 from .models import Match
 import datetime
 from .forms import MatchForm
-from .calculation import new_match, update_players, update_rank, new_player
+from .calculation import new_match, update_players, update_rank
 
 
 def index(request):

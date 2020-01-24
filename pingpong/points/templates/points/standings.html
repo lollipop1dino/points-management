@@ -14,7 +14,7 @@
   {% for Player in ranks %}
   <tr>
     <th>{{ Player.rank}}</th>
-    <th>{{ Player.name }}</th>
+    <th>{{ Player.first_name }} {{ Player.last_name }}</th>
     <th>{{ Player.points }}</th>
   </tr>
   {% endfor %}

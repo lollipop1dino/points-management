@@ -137,7 +137,11 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 
-SITE_ID = 3
+AUTH_USER_MODEL = 'points.Player'
+
+SITE_ID = 5
+
+ACCOUNT_EMAIL_REQUIRED = True
 
 LOGIN_REDIRECT_URL = '/'
 ACCOUNT_LOGOUT_REDIRECT_URL ='/'

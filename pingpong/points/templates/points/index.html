@@ -9,7 +9,7 @@
   <h1 class="w3-margin w3-jumbo">NCSSM Ping Pong Club</h1>
   <p class="w3-xlarge">2019-2020</p>
   {% if user.is_authenticated %}
-<p>Logged in as {{ user.username }}</p>
+<p>Logged in as {{ user.email }}</p>
 <a href="{% url 'account_logout' %}">Logout</a>
 {% else %}
 <a href="{% provider_login_url 'google' %}" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Sign-in</a>
