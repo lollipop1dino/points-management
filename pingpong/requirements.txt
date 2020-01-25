@@ -55,6 +55,6 @@ Ubuntu-Make==18.5
 ufw==0.35
 unattended-upgrades==0.1
 urllib3==1.25.7
-virtualenv==15.0.1
+
 wget==3.2
 whitenoise==5.0.1
