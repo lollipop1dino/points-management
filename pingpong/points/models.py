@@ -9,7 +9,7 @@ class Player(AbstractUser):
     email = models.EmailField(unique=True)
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username']
+    REQUIRED_FIELDS = ['first_name','last_name','username']
 
     def __str__(self):
         return self.first_name + " " + self.last_name
