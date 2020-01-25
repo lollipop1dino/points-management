@@ -41,8 +41,5 @@ scipy==1.4.1
 six==1.14.0
 sqlparse==0.3.0
 
-ufw==0.35
-unattended-upgrades==0.1
 urllib3==1.25.7
-wget==3.2
 whitenoise==5.0.1
