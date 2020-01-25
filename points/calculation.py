@@ -12,6 +12,7 @@ def update_rank():
     for h in play:
         h.rank = current
         current += 1
+    play.save()
 
 def new_match(loser, winner, timestamp):
     
