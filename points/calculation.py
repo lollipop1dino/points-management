@@ -10,8 +10,9 @@ def update_rank():
     play = Player.objects.order_by('-points')
     current = 1
     for h in play:
-        current += 1
         h.rank = current
+        current += 1
+        h.save()
 
 def new_match(loser, winner, timestamp):
     
