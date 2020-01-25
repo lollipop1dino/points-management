@@ -1,0 +1,19 @@
+<!-- Extends our base template -->
+{% extends "points/base_template.html" %}
+<!--{% load static %}-->
+{% block main %}
+
+<!-- Main Content -->
+<div class="container rounded main-content p-5">
+  <h2>Match Submission</h2>
+  <hr class="featurette-divider">
+  <div class="row">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+    <h3>{{success}}</h3>
+  </div>
+</div>
+{% endblock %}
